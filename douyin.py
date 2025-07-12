@@ -36,7 +36,7 @@ for i in data:
     title_ulti = re.sub('[\\/:*?"<>|]~`+=', '', title)# 替换非法字符
     
     # 视频
-    if i['images'] == 'none': #纯视频的值为none，确保不下载动图视频的音乐
+    if i['images'] is None: #纯视频的值为none，确保不下载动图视频的音乐
         try:
             video_url = i['video']['play_addr']['url_list'][0]  # 获取视频地址
             res_video = requests.get(video_url, headers=headers).content  # 发送请求获取视频内容
